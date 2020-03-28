@@ -15,7 +15,7 @@ public abstract class AbstractSortBase<T> implements SortFunctional<T>{
 
     private Comparator<T> comparator;
 
-    AbstractSortBase(Comparator<T> comparator){
+    protected AbstractSortBase(Comparator<T> comparator){
         this.comparator = comparator;
     }
 
@@ -26,7 +26,7 @@ public abstract class AbstractSortBase<T> implements SortFunctional<T>{
      * @param reverse 反向标志
      * @return 排序后的数据列表
      */
-    abstract List<T> sortData(List<T> dataList , boolean reverse);
+    protected abstract List<T> sortData(List<T> dataList, boolean reverse);
 
     /**
      * 比较数据列表中的某2个数据大小
@@ -35,7 +35,7 @@ public abstract class AbstractSortBase<T> implements SortFunctional<T>{
      * @param b 后参数
      * @return 使用方提供的compare结果
      */
-    int compare(T a, T b){
+    protected int compare(T a, T b){
         return this.comparator.compare(a,b);
     }
 

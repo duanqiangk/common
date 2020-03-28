@@ -1,5 +1,6 @@
-package com.dqit.common.algorithm.sort;
+package com.dqit.common.algorithm.sort.impl;
 
+import com.dqit.common.algorithm.sort.AbstractSortBase;
 import com.google.common.collect.Lists;
 
 import java.util.Comparator;
@@ -35,7 +36,7 @@ public class BubbleSortImpl<T> extends AbstractSortBase<T> {
      * @return 排序结果
      */
     @Override
-    List<T> sortData(List<T> dataList, boolean reverse) {
+    protected List<T> sortData(List<T> dataList, boolean reverse) {
         List<T> alterDataList = Lists.newArrayList(dataList);
         int length = alterDataList.size();
 

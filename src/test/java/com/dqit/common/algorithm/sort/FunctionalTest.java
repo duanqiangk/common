@@ -1,5 +1,6 @@
 package com.dqit.common.algorithm.sort;
 
+import com.dqit.common.algorithm.sort.impl.BubbleSortImpl;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 
