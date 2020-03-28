@@ -1,9 +1,11 @@
 package com.dqit.common.algorithm.sort;
 
 import com.dqit.common.algorithm.sort.impl.BubbleSortImpl;
+import com.dqit.common.algorithm.sort.impl.DirectInsertSortImpl;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class FunctionalTest {
     @Test
    public void functionalTest(){
 
-        SortFunctional<Integer> integerBubbleSort = new BubbleSortImpl<Integer>(new Comparator<Integer>() {
+        SortFunctional<Integer> integerBubbleSort = new DirectInsertSortImpl<Integer>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o1 - o2;
@@ -26,6 +28,18 @@ public class FunctionalTest {
 
         List<Integer> list = Lists.newArrayList(5,1,2,3,4,8,9,6,4,5,1,2,5);
         System.out.println(integerBubbleSort.sort(list));
+    }
+
+    @Test
+    public void collectionsSort(){
+        List<Integer> list = Lists.newArrayList(5,1,2,3,4,8,9,6,4,5,1,2,5);
+        Collections.sort(list, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1 - o2;
+            }
+        });
+        System.out.println(list);
     }
 
 }

@@ -18,14 +18,14 @@ public class BubbleSortImpl<T> extends AbstractSortBase<T> {
     }
 
     /**
-     * 判断是否互换位置
+     * 判断是否互换位置,默认从小到大排序
      *
      * @param compareResult 比较结果
      * @param reverse       反向标志
      * @return 是否交换
      */
     private boolean exchange(int compareResult, boolean reverse) {
-        return (compareResult > 0 && reverse) || (compareResult < 0 && !reverse);
+        return (compareResult < 0 && reverse) || (compareResult > 0 && !reverse);
     }
 
     /**
@@ -37,7 +37,7 @@ public class BubbleSortImpl<T> extends AbstractSortBase<T> {
      */
     @Override
     protected List<T> sortData(List<T> dataList, boolean reverse) {
-        List<T> alterDataList = Lists.newArrayList(dataList);
+        List<T> alterDataList = copyDataList(dataList);
         int length = alterDataList.size();
 
         for (int i = 0; i < length; ++i) {

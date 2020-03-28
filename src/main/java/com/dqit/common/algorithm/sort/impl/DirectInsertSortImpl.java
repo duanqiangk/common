@@ -12,13 +12,40 @@ import java.util.List;
  */
 public class DirectInsertSortImpl<T> extends AbstractSortBase<T> {
 
-    protected DirectInsertSortImpl(Comparator<T> comparator) {
+    public DirectInsertSortImpl(Comparator<T> comparator) {
         super(comparator);
     }
 
     @Override
     protected List<T> sortData(List<T> dataList, boolean reverse) {
-        //TODO 直接插入排序算法实现
-        return null;
+        List<T> cpList = copyDataList(dataList);
+
+        for(int i = 1 ; i < cpList.size() ; ++ i ){
+            int index = i ;
+            T target = cpList.get(index);
+
+            while (index > 0 ){
+                T current = cpList.get(index - 1);
+                int cmp = compare(target , current);
+
+                if(stopCheck(cmp , reverse)){
+                    break;
+                }
+
+                cpList.set(index , current);
+                --index;
+            }
+            cpList.set(index , target);
+        }
+        return cpList;
+    }
+
+    /**
+     * 是否停止遍历并插入当前位置
+     *
+     * @return 是否停止遍历标志
+     */
+    private boolean stopCheck(int compareResult, boolean reverse) {
+        return (compareResult > 0 && !reverse) || (compareResult < 0 && reverse);
     }
 }

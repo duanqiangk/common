@@ -2,6 +2,7 @@ package com.dqit.common.algorithm.sort;
 
 import com.dqit.common.exception.NecessaryParamLostException;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
 
 import java.util.Comparator;
 import java.util.List;
@@ -17,6 +18,10 @@ public abstract class AbstractSortBase<T> implements SortFunctional<T>{
 
     protected AbstractSortBase(Comparator<T> comparator){
         this.comparator = comparator;
+    }
+
+    protected List<T> copyDataList(List<T> dataList){
+        return Lists.newArrayList(dataList);
     }
 
     /**
