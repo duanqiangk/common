@@ -22,7 +22,7 @@ public class QuickSortImpl<T> extends AbstractSortBase<T> {
         dataList.set(right, temp);
     }
 
-    private void quickSort(List<T> dataList, int left, int right) {
+    private void quickSort(List<T> dataList, int left, int right , boolean reverse) {
         if (left >= right) {
             return;
         }
@@ -30,24 +30,28 @@ public class QuickSortImpl<T> extends AbstractSortBase<T> {
         T mark = dataList.get(left);
 
         while (low < high) {
-            while (low < high && compare(mark, dataList.get(high)) <= 0) {
+            while (low < high && compare( dataList.get(high) ,mark, reverse)) {
                 --high;
             }
             swap(dataList, low, high);
-            while (low < high && compare(mark, dataList.get(low)) >= 0) {
+            while (low < high && compare(mark, dataList.get(low) , reverse)) {
                 ++low;
             }
             swap(dataList, low, high);
         }
 
-        quickSort(dataList, left, low - 1);
-        quickSort(dataList, low + 1, right );
+        quickSort(dataList, left, low - 1, reverse);
+        quickSort(dataList, low + 1, right ,reverse);
+    }
+
+    private boolean compare(T a , T b , boolean reverse){
+        return (compare(a , b) >= 0 && !reverse) || (compare(a , b ) <= 0 && reverse);
     }
 
     @Override
     public List<T> sortData(List<T> dataList, boolean reverse) {
         List<T> copyDataList = copyDataList(dataList);
-        quickSort(copyDataList, 0, copyDataList.size() - 1);
+        quickSort(copyDataList, 0, copyDataList.size() - 1 ,reverse);
         return copyDataList;
     }
 }
