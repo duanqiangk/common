@@ -12,13 +12,36 @@ import java.util.List;
  */
 public class SelectionSortImpl<T> extends AbstractSortBase<T> {
 
-    protected SelectionSortImpl(Comparator<T> comparator) {
+    public SelectionSortImpl(Comparator<T> comparator) {
         super(comparator);
+    }
+
+
+    private boolean compare(T a , T b , boolean reverse){
+        return (compare(a , b ) >= 0 && ! reverse) || (compare(a , b ) <= 0 && reverse);
+    }
+
+    private void swap(List<T> dataList , int left , int right){
+        T temp = dataList.get(left);
+        dataList.set(left , dataList.get(right));
+        dataList.set(right , temp);
     }
 
     @Override
     protected List<T> sortData(List<T> dataList, boolean reverse) {
-        //TODO : 选择排序算法实现
-        return null;
+        List<T> copyDataList = copyDataList(dataList);
+
+        for(int i = 0 ; i < copyDataList.size() ; ++i ){
+            int index = i ;
+
+            for(int j = i + 1 ; j < copyDataList.size() ; ++j ){
+                T target = copyDataList.get(j);
+                if(compare(copyDataList.get(index) ,target  , reverse)){
+                    index = j;
+                }
+            }
+            swap(copyDataList , i , index);
+        }
+        return copyDataList;
     }
 }
