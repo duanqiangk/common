@@ -12,14 +12,39 @@ import java.util.List;
  */
 public class BinaryInsertSortImpl<T> extends AbstractSortBase<T> {
 
-    protected BinaryInsertSortImpl(Comparator<T> comparator) {
+    public BinaryInsertSortImpl(Comparator<T> comparator) {
         super(comparator);
     }
 
     @Override
     protected List<T> sortData(List<T> dataList, boolean reverse) {
-        //TODO 二分插入算法实现
+        List<T> copyDataList = copyDataList(dataList);
 
-        return null;
+        for (int i = 1; i < copyDataList.size(); ++i) {
+            T current = copyDataList.get(i);
+            int left = 0 , right = i - 1;
+
+            // 定位插入位置
+            while( left <= right){
+                int mid = (left + right ) / 2;
+                T target = copyDataList.get(mid);
+
+                if(compare(current , target) > 0 ){
+                    left = mid + 1;
+                }else{
+                    right = mid - 1;
+                }
+            }
+
+            // 移动元素并放置元素
+            int j = i ;
+            while (j > left){
+                copyDataList.set(j , copyDataList.get(j - 1 ));
+                --j;
+            }
+            copyDataList.set(left , current);
+        }
+
+        return copyDataList;
     }
 }

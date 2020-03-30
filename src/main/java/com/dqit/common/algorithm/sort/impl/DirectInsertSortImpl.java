@@ -22,16 +22,17 @@ public class DirectInsertSortImpl<T> extends AbstractSortBase<T> {
 
         for(int i = 1 ; i < cpList.size() ; ++ i ){
             int index = i ;
+            // 要进入有序队列的元素
             T target = cpList.get(index);
 
             while (index > 0 ){
                 T current = cpList.get(index - 1);
                 int cmp = compare(target , current);
-
                 if(stopCheck(cmp , reverse)){
                     break;
                 }
 
+                //将前面的元素复制到当前位置
                 cpList.set(index , current);
                 --index;
             }

@@ -1,5 +1,6 @@
 package com.dqit.common.algorithm.sort;
 
+import com.dqit.common.algorithm.sort.impl.BinaryInsertSortImpl;
 import com.dqit.common.algorithm.sort.impl.BubbleSortImpl;
 import com.dqit.common.algorithm.sort.impl.DirectInsertSortImpl;
 import com.google.common.collect.Lists;
@@ -19,7 +20,7 @@ public class FunctionalTest {
     @Test
    public void functionalTest(){
 
-        SortFunctional<Integer> integerBubbleSort = new DirectInsertSortImpl<Integer>(new Comparator<Integer>() {
+        SortFunctional<Integer> integerBubbleSort = new BinaryInsertSortImpl<Integer>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o1 - o2;
