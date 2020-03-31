@@ -1,9 +1,6 @@
 package com.dqit.common.algorithm.sort;
 
-import com.dqit.common.algorithm.sort.impl.BinaryInsertSortImpl;
-import com.dqit.common.algorithm.sort.impl.HeapSortImpl;
-import com.dqit.common.algorithm.sort.impl.QuickSortImpl;
-import com.dqit.common.algorithm.sort.impl.SelectionSortImpl;
+import com.dqit.common.algorithm.sort.impl.*;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 
@@ -21,7 +18,7 @@ public class FunctionalTest {
     @Test
    public void functionalTest(){
 
-        SortFunctional<Integer> integerBubbleSort = new HeapSortImpl<Integer>(new Comparator<Integer>() {
+        SortFunctional<Integer> integerBubbleSort = new MergeSortImpl<Integer>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o1 - o2;
