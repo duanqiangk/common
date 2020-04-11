@@ -11,7 +11,7 @@ import java.util.List;
  * @Date 2020/3/28 20:50
  * @Description
  */
-public class FunctionalTest {
+public class SortAlgorithmTest {
     private List<Integer> list1 = Lists.newArrayList(5, 3, 7, 6, 4, 1, 0, 2, 9, 10, 8);
     private List<Integer> list2 = Lists.newArrayList(5, 1, 2, 3, 4, 8, 9, 6, 4, 5, 1, 2, 5);
 
