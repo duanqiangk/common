@@ -18,7 +18,7 @@ public class FunctionalTest {
     @Test
    public void functionalTest(){
 
-        SortFunctional<Integer> integerBubbleSort = new MergeSortImpl<Integer>(new Comparator<Integer>() {
+        SortFunctional<Integer> integerBubbleSort = new ShellSortImpl<Integer>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o1 - o2;

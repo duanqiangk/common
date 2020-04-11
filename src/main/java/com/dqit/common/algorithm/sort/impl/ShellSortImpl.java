@@ -12,13 +12,33 @@ import java.util.List;
  */
 public class ShellSortImpl<T> extends AbstractSortBase<T> {
 
-    protected ShellSortImpl(Comparator<T> comparator) {
+    public ShellSortImpl(Comparator<T> comparator) {
         super(comparator);
+    }
+
+    private boolean compare(T a , T b , boolean reverse){
+        return (compare(a, b) > 0) != reverse;
     }
 
     @Override
     protected List<T> sortData(List<T> dataList, boolean reverse) {
-        //TODO : 希尔排序算法实现
-        return null;
+        List<T> copyDataList = copyDataList(dataList);
+        int gap = copyDataList.size() ;
+        do {
+            gap /= 2;
+            for (int i = 0 ; i < gap ; ++i){
+                for(int j = i + gap ; j < copyDataList.size() ; j += gap) {
+                    T temp = copyDataList.get(j);
+                    int prevIndex = j - gap;
+                    while (prevIndex >= 0 && compare(copyDataList.get(prevIndex), temp, reverse)) {
+                        copyDataList.set(prevIndex + gap, copyDataList.get(prevIndex));
+                        prevIndex -= gap;
+                    }
+                    copyDataList.set(prevIndex + gap, temp);
+                }
+            }
+        }while (gap != 1);
+
+        return copyDataList;
     }
 }
