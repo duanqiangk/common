@@ -60,10 +60,6 @@ public class MergeSortImpl<T> extends AbstractSortBase<T> {
         }
     }
 
-    private boolean compare(T a, T b, boolean reverse) {
-        return (compare(a, b) > 0 && !reverse) || (compare(a, b) < 0 && reverse);
-    }
-
     @Override
     protected List<T> sortData(List<T> dataList, boolean reverse) {
         List<T> result = Lists.newArrayList(dataList);

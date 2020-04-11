@@ -16,11 +16,6 @@ public class SelectionSortImpl<T> extends AbstractSortBase<T> {
         super(comparator);
     }
 
-
-    private boolean compare(T a , T b , boolean reverse){
-        return (compare(a , b ) >= 0 && ! reverse) || (compare(a , b ) <= 0 && reverse);
-    }
-
     private void swap(List<T> dataList , int left , int right){
         T temp = dataList.get(left);
         dataList.set(left , dataList.get(right));

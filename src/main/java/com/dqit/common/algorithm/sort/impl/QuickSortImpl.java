@@ -44,10 +44,6 @@ public class QuickSortImpl<T> extends AbstractSortBase<T> {
         quickSort(dataList, low + 1, right ,reverse);
     }
 
-    private boolean compare(T a , T b , boolean reverse){
-        return (compare(a , b) >= 0 && !reverse) || (compare(a , b ) <= 0 && reverse);
-    }
-
     @Override
     public List<T> sortData(List<T> dataList, boolean reverse) {
         List<T> copyDataList = copyDataList(dataList);

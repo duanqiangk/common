@@ -24,6 +24,10 @@ public abstract class AbstractSortBase<T> implements SortFunctional<T>{
         return Lists.newArrayList(dataList);
     }
 
+    protected boolean compare(T a , T b , boolean reverse){
+        return (compare(a, b) >= 0) != reverse;
+    }
+
     /**
      * 排序具体实现方法
      *

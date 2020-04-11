@@ -12,13 +12,15 @@ import java.util.List;
  */
 public class BucketSortImpl<T> extends AbstractSortBase<T> {
 
-    protected BucketSortImpl(Comparator<T> comparator) {
+    public BucketSortImpl(Comparator<T> comparator) {
         super(comparator);
     }
 
     @Override
     protected List<T> sortData(List<T> dataList, boolean reverse) {
-        //TODO : 桶排序算法实现
-        return null;
+        List<T> copyDataList = copyDataList(dataList);
+
+
+        return copyDataList;
     }
 }

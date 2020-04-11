@@ -8,16 +8,12 @@ import java.util.List;
 /**
  * @Author qiang.duan
  * @Date 2020/3/28 22:22
- * @Description
+ * @Description 希尔排序算法实现
  */
 public class ShellSortImpl<T> extends AbstractSortBase<T> {
 
     public ShellSortImpl(Comparator<T> comparator) {
         super(comparator);
-    }
-
-    private boolean compare(T a , T b , boolean reverse){
-        return (compare(a, b) > 0) != reverse;
     }
 
     @Override

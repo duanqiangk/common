@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class RadixSortImpl<T> extends AbstractSortBase<T> {
 
-    protected RadixSortImpl(Comparator<T> comparator) {
+    public RadixSortImpl(Comparator<T> comparator) {
         super(comparator);
     }
 

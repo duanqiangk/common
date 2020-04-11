@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class CountSortImpl<T> extends AbstractSortBase<T> {
 
-    protected CountSortImpl(Comparator<T> comparator) {
+    public CountSortImpl(Comparator<T> comparator) {
         super(comparator);
     }
 

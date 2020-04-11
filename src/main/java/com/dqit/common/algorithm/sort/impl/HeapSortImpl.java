@@ -77,18 +77,6 @@ public class HeapSortImpl<T> extends AbstractSortBase<T> {
         }
     }
 
-    /**
-     * return a - b > 0 if reverse = false
-     *
-     * @param a a
-     * @param b b
-     * @param reverse reverse flag
-     * @return a - b > 0 if reverse = false
-     */
-    private boolean compare(T a, T b, boolean reverse) {
-        return (compare(a, b) > 0 && !reverse) || (compare(a, b) < 0 && reverse);
-    }
-
     @Override
     protected List<T> sortData(List<T> dataList, boolean reverse) {
         List<T> cpDataList = copyDataList(dataList);
