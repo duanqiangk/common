@@ -103,28 +103,4 @@ public class FunctionalTest {
         System.out.println(sortAlgorithm.sort(list2));
     }
 
-
-    @Test
-    public void bucketSortTest(){
-        SortFunctional<Integer> sortAlgorithm = new BucketSortImpl<>((o1, o2) -> o1 - o2);
-
-        System.out.println(sortAlgorithm.sort(list1));
-        System.out.println(sortAlgorithm.sort(list2));
-    }
-
-    @Test
-    public void countSortTest(){
-        SortFunctional<Integer> sortAlgorithm = new CountSortImpl<>((o1, o2) -> o1 - o2);
-
-        System.out.println(sortAlgorithm.sort(list1));
-        System.out.println(sortAlgorithm.sort(list2));
-    }
-
-    @Test
-    public void radixSortTest(){
-        SortFunctional<Integer> sortAlgorithm = new RadixSortImpl<>((o1, o2) -> o1 - o2);
-
-        System.out.println(sortAlgorithm.sort(list1));
-        System.out.println(sortAlgorithm.sort(list2));
-    }
 }
