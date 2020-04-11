@@ -11,27 +11,54 @@ import java.util.List;
  * @Description 先决条件
  */
 public class Preconditions {
-    public static<T> void checkNotNull(T data){
-        if(data == null){
+    /**
+     * 检查数据是否为NULL，如果是NULL抛出异常
+     *
+     * @param data 数据
+     * @param <T>  数据类型
+     */
+    public static <T> void checkNotNull(T data) {
+        if (data == null) {
             throw new NecessaryParamLostException();
         }
     }
 
-    public static<T> void checkNotNull (T data , String message){
-        if (data == null){
+    /**
+     * 检查数据是否为NULL ， 如果是抛出异常
+     *
+     * @param data 数据
+     * @param message 异常信息
+     * @param <T> 数据类型
+     */
+    public static <T> void checkNotNull(T data, String message) {
+        if (data == null) {
             throw new NecessaryParamLostException(message);
         }
     }
 
-    public static<T> void checkListNotEmpty(List<T> list){
-        if(list.isEmpty()){
+    /**
+     * 检查列表是否为空
+     *
+     * @param list 列表
+     * @param <T> 数据类型
+     */
+    public static <T> void checkListNotEmpty(List<T> list) {
+        if (list.isEmpty()) {
             throw new ListEmptyException();
         }
     }
 
-    public static<T> void checkListNotEmpty(List<T> list , String message){
-        if(list.isEmpty()){
+    /**
+     * 检查列表是否为空
+     *
+     * @param list 列表
+     * @param message 异常信息
+     * @param <T> 数据类型
+     */
+    public static <T> void checkListNotEmpty(List<T> list, String message) {
+        if (list.isEmpty()) {
             throw new ListEmptyException(message);
         }
     }
+
 }
